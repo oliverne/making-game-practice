@@ -11,12 +11,13 @@
 
   class GameCharacter {
     /**
-     * Game Character
+     * Game object
      * @param {number} x
      * @param {number} y
      * @param {number} width
      * @param {number} height
      * @param {string} color
+     * @param {number} speed
      */
     constructor(x, y, width, height, color, speed) {
       this.x = x
@@ -75,12 +76,12 @@
   const sprites = {}
 
   const loadSprites = () => {
+    sprites.background = new Image()
+    sprites.background.src = 'images/floor.png'
     sprites.player = new Image()
     sprites.player.src = 'images/hero.png'
     sprites.goal = new Image()
     sprites.goal.src = 'images/chest.png'
-    sprites.background = new Image()
-    sprites.background.src = 'images/floor.png'
     sprites.enemy = new Image()
     sprites.enemy.src = 'images/enemy.png'
   }
@@ -100,29 +101,23 @@
 
   const checkCollisions = (rect1, rect2) => {
     const xOverlap =
-      Math.abs(rect1.x - rect2.x) <= Math.max(rect1.width - 10, rect2.width - 10)
+      Math.abs(rect1.x - rect2.x) <=
+      Math.max(rect1.width - 10, rect2.width - 10)
     const yOverlap =
-      Math.abs(rect1.y - rect2.y) <= Math.max(rect1.height - 10, rect2.height - 10)
+      Math.abs(rect1.y - rect2.y) <=
+      Math.max(rect1.height - 10, rect2.height - 10)
+
     return xOverlap && yOverlap
   }
 
   const draw = () => {
     ctx.clearRect(0, 0, screenWidth, screenHeight)
-
     ctx.drawImage(sprites.background, 0, 0)
     ctx.drawImage(sprites.player, player.x, player.y)
     ctx.drawImage(sprites.goal, goal.x, goal.y)
     enemies.forEach(enemy => {
       ctx.drawImage(sprites.enemy, enemy.x, enemy.y)
     })
-    // ctx.fillStyle = player.color
-    // ctx.fillRect(player.x, player.y, player.width, player.height)
-    // ctx.fillStyle = goal.color
-    // ctx.fillRect(goal.x, goal.y, goal.width, goal.height)
-    // enemies.forEach(enemy => {
-    //   ctx.fillStyle = enemy.color
-    //   ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height)
-    // })
   }
 
   const update = () => {
