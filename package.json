@@ -1,0 +1,11 @@
+{
+  "name": "crossing-game",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0"
+  }
+}
