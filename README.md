@@ -5,7 +5,7 @@
 2. [Crossing Game #1](https://oliverne.github.io/making-game-practice/1-crossing-game/)
 - Vanilla JS
 
-2. Crossing Game #2
+2. [Crossing Game #2](https://oliverne.github.io/making-game-practice/2-crossing-game-phaser/)
 - Phaser
  
 
